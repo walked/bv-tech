@@ -6,7 +6,7 @@ resource "aws_lb" "bvco-alb" {
 
 }
 
-resource "aws_lb_listener" "https_forward" {
+resource "aws_lb_listener" "http_forward" {
   load_balancer_arn = aws_lb.bvco-alb.arn
   port              = 80
   protocol          = "HTTP"

@@ -13,4 +13,12 @@ module "vpc" {
 
 }
 
+resource "aws_route53_record" "www" {
+  zone_id = var.zone_id
+  name    = "bvco.seta.sh"
+  type    = "CNAME"
+  ttl     = "300"
+  records = [aws_lb.bvco-alb.dns_name]
+}
+
 

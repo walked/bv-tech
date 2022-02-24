@@ -6,12 +6,20 @@
 - Alternatively, you can use: [AWS Environment Variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 
 ### Quick Utilization:
+
+
+**Note:** *If running in your own AWS environment you will need to override the default Zone ID in* `variables.tf` 
+
+[Documentation](https://www.terraform.io/language/values/variables#variables-on-the-command-line)
+
+
 1) As configured this leverages a default AWS profile (not a named profile). Ensure you have the AWS CLI configured with a default profile.
 
 2) Clone this repository
 
 3) From the Root; run: `terraform init` then `terraform plan`; if this output is to your liking: `terraform apply` (note: the `-out` flag should be used and passed to `terraform apply` to ensure plan execution matches intention in more "important" deployment scenarios)
 
+4) The ALB DNS Name will be published at the console; by default (on my AWS environment) the ALB will also be published at http://bvco.seta.sh/
 ---
 
 Some notes:
@@ -28,3 +36,5 @@ module "vpc" {
   version = "3.12.0"
 }
 ```
+
+- Obviously this service is published on port 80 at current; I'd strongly advise integration with ACM or similar Certificate Authority; this would be contextualized by need and deployment requirements of a given system.

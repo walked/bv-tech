@@ -10,3 +10,8 @@ variable "container_environment" {
   default = []
 }
 
+variable "zone_id" {
+  description = "Zone ID for Route53"
+  type        = string
+  default = "Z2M7MAEIPQ61O7"
+}
